@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amanda Kou</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%231A1A1A'/><text x='50' y='68' text-anchor='middle' font-family='Georgia,Times,serif' font-size='58' font-weight='bold' fill='white'>A</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #FAF7F2;
+    --charcoal: #1A1A1A;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --warm-gray: #8A8178;
+    --light-border: #E8E2D9;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.7;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    background: rgba(250, 247, 242, 0.85);
+    border-bottom: 1px solid var(--light-border);
+    transition: all 0.4s ease;
+  }
+  nav.scrolled { padding: 18px 60px; }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--charcoal);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 60px 100px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 15%; right: 10%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 20%; left: 8%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .hero-content { max-width: 800px; position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 48px;
+    color: var(--charcoal);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--warm-gray);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 48px;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    transition: all 0.4s ease;
+  }
+  .hero-cta:hover {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--warm-gray);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* SECTION COMMON */
+  section { padding: 120px 60px; }
+  .section-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* SERVICES */
+  .services { background: white; }
+  .services-header { text-align: center; margin-bottom: 80px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .service-card {
+    padding: 48px 40px;
+    border: 1px solid var(--light-border);
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { border-color: var(--gold-light); }
+  .service-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .service-card .tagline {
+    font-size: 0.9rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .service-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .service-card li {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    padding-left: 18px;
+    position: relative;
+  }
+  .service-card li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 9px;
+    width: 6px; height: 1px;
+    background: var(--gold);
+  }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .about-bio {
+    font-size: 0.95rem;
+    color: var(--warm-gray);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+  .about-bio:last-of-type { margin-bottom: 0; }
+
+  .superpowers-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+  .superpower-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .superpower-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--light-border);
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: padding-left 0.3s ease;
+  }
+  .superpower-item:first-child { border-top: 1px solid var(--light-border); }
+  .superpower-item:hover { padding-left: 12px; }
+  .superpower-item .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* BRAND EXPERIENCE */
+  .brands {
+    background: white;
+    text-align: center;
+    padding: 100px 60px;
+  }
+  .brands .section-title {
+    color: var(--charcoal);
+    margin-bottom: 48px;
+  }
+  .brands-logos {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .brands-logos img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--cream);
+    text-align: center;
+    padding: 120px 60px;
+  }
+  .contact-email {
+    font-family: 'Playfair Display', serif;
+    font-size: calc(0.82rem + 2pt);
+    color: var(--charcoal);
+    text-decoration: none;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+  .contact-email:hover { color: var(--gold); }
+  .contact-location {
+    margin-top: 24px;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    color: var(--warm-gray);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 60px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.1em;
+    border-top: 1px solid var(--light-border);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 20px 28px; }
+    .nav-links { gap: 20px; }
+    section { padding: 80px 28px; }
+    .services-grid { grid-template-columns: 1fr; gap: 32px; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero { padding: 120px 28px 80px; }
+    .brands { padding: 80px 28px; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="logo">Amanda Kou</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content fade-in">
+    <h1>Insights <em>Framed</em> for Action</h1>
+    <p>I translate complex research into clear, actionable plans</p>
+    <a href="#contact" class="hero-cta">Get In Touch</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header fade-in">
+    <h2 class="section-title">Services</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-number">01</div>
+      <h3>Innovation</h3>
+      <p class="tagline">Ideas built on human insight and whitespace opportunity — framed for commercial traction</p>
+      <ul>
+        <li>Opportunity mapping & concept development</li>
+        <li>Innovation pipeline design & portfolio strategy</li>
+        <li>Co-creation workshops & prototyping</li>
+        <li>Competitive & cultural intelligence</li>
+      </ul>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-number">02</div>
+      <h3>Consumer Insights</h3>
+      <p class="tagline">Behavioral truths decoded and framed for action, not just understanding</p>
+      <ul>
+        <li>Custom qualitative research (ethnography, IDIs, digital diaries)</li>
+        <li>Quant surveys, segmentation, & validation</li>
+        <li>AI-powered synthesis + sensemaking</li>
+        <li>Inclusive research design for diverse audiences</li>
+        <li>Trend forecasting and early signal strategy</li>
+      </ul>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-number">03</div>
+      <h3>Brand Strategy</h3>
+      <p class="tagline">Differentiated brand positioning based on market need and human truths</p>
+      <ul>
+        <li>Brand territory development & whitespace opportunity</li>
+        <li>Value proposition and positioning</li>
+        <li>Naming and messaging</li>
+        <li>Brand architecture</li>
+        <li>Mission, Vision, Values</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">My Superpowers</h2>
+      <p class="about-bio">Hi! I'm Amanda — a hybrid strategy leader who helps brands turn deep human insight into clear, actionable strategy.</p>
+      <p class="about-bio">I've worked across industries and around the world — leading strategy, insight, and innovation work for 60+ brands, from Series B startups to Fortune 100 giants. My clients span tech, CPG, finance, health, retail, and beyond. I've learned from the best at Deloitte, ?What If! (part of Accenture), Landor, Sylvain, COLLINS, Board of Innovation and now partner with ambitious teams ready to move.</p>
+      <p class="about-bio">I work at the intersection of research, creativity, and business — toggling between 10,000-foot vision and 10-inch detail. Whether I'm framing an insight, naming a product, or aligning a cross-functional team, my goal is always the same: to turn ambiguity into clarity, and insight into action.</p>
+      <p class="about-bio">Outside of work, I'm usually doing yoga, learning about somatic practices and polyvagal theory or baking my way through the NYT cookie list.</p>
+    </div>
+    <div class="about-powers fade-in">
+      <div class="superpowers-label">My Superpowers</div>
+      <ul class="superpower-list">
+        <li class="superpower-item"><span class="dot"></span> Turning ambiguity into strategic clarity</li>
+        <li class="superpower-item"><span class="dot"></span> Leading cross functional workshops that drive alignment</li>
+        <li class="superpower-item"><span class="dot"></span> Translating research into strategy that teams will use</li>
+        <li class="superpower-item"><span class="dot"></span> Understanding what people mean. Acting on what they need</li>
+        <li class="superpower-item"><span class="dot"></span> Partnering with AI to push thinking and pressure-test ideas</li>
+        <li class="superpower-item"><span class="dot"></span> Bringing humanity and structure to messy problems</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="brands" id="experience">
+  <div class="fade-in">
+    <h2 class="section-title">Brand Experience</h2>
+    <div class="brands-logos">
+      <img src="brand-experience.png" alt="Brand Experience — logos of companies Amanda has worked with">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="fade-in">
+    <a href="mailto:amanda@amandakou.com" class="contact-email">amanda@amandakou.com</a>
+    <p class="contact-location">found in brooklyn</p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Amanda Kou</p>
+</footer>
+
+<script>
+  // Scroll nav shrink
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
