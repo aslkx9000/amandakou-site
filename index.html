@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amanda Kou — Clear Business Design</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%232C2C2A'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='26' font-weight='400' fill='%23F7F5F0'>AK</text></svg>">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; }
-
     body {
       font-family: 'DM Mono', monospace;
       background: #F7F5F0;
@@ -21,14 +18,13 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
     .site {
       max-width: 860px;
       margin: 0 auto;
       padding: 0 2.5rem 8rem;
     }
 
-    /* --- NAV --- */
+    /* NAV */
     .nav {
       display: flex;
       justify-content: space-between;
@@ -37,7 +33,6 @@
       border-bottom: 0.5px solid #D3D1C7;
       margin-bottom: 5.5rem;
     }
-
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 19px;
@@ -46,7 +41,6 @@
       letter-spacing: 0.03em;
       text-decoration: none;
     }
-
     .nav-links {
       display: flex;
       gap: 2.25rem;
@@ -55,21 +49,18 @@
       text-transform: uppercase;
       color: #888780;
     }
-
     .nav-links a {
       color: #888780;
       text-decoration: none;
     }
-
     .nav-links a:hover { color: #2C2C2A; }
 
-    /* --- HERO --- */
+    /* HERO */
     .hero {
       border-top: 0.5px solid #2C2C2A;
       padding-top: 3.5rem;
       margin-bottom: 7rem;
     }
-
     .hero-h {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(46px, 6.5vw, 72px);
@@ -79,9 +70,7 @@
       color: #2C2C2A;
       margin-bottom: 2rem;
     }
-
     .hero-h em { font-style: italic; }
-
     .hero-sub {
       font-size: 12px;
       line-height: 2.0;
@@ -89,7 +78,6 @@
       max-width: 500px;
       margin-bottom: 2.25rem;
     }
-
     .cta {
       display: inline-block;
       font-family: 'DM Mono', monospace;
@@ -104,26 +92,23 @@
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
     }
-
     .cta:hover {
       background: #2C2C2A;
       color: #F7F5F0;
     }
 
-    /* --- DIVIDER --- */
+    /* DIVIDER */
     .divider {
       display: flex;
       align-items: center;
       gap: 1.25rem;
       margin: 4.5rem 0;
     }
-
     .div-line {
       flex: 1;
       height: 0.5px;
       background: #D3D1C7;
     }
-
     .div-t {
       font-size: 9px;
       letter-spacing: 0.22em;
@@ -132,9 +117,8 @@
       white-space: nowrap;
     }
 
-    /* --- SECTIONS --- */
+    /* SECTIONS */
     .section { margin-bottom: 5.5rem; }
-
     .section-h {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(28px, 4vw, 44px);
@@ -143,9 +127,7 @@
       color: #2C2C2A;
       margin-bottom: 1.75rem;
     }
-
     .section-h em { font-style: italic; }
-
     .body {
       font-size: 12px;
       line-height: 2.0;
@@ -153,7 +135,6 @@
       margin-bottom: 1.1rem;
       max-width: 600px;
     }
-
     .body-wide {
       font-size: 12px;
       line-height: 2.0;
@@ -161,14 +142,13 @@
       margin-bottom: 1.1rem;
     }
 
-    /* --- BULLET LIST --- */
+    /* BULLET LIST */
     .bullet-list {
       margin: 1.1rem 0 1.75rem;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
-
     .bullet-item {
       font-size: 12px;
       line-height: 1.8;
@@ -176,7 +156,6 @@
       padding-left: 1.25rem;
       position: relative;
     }
-
     .bullet-item::before {
       content: '—';
       position: absolute;
@@ -184,19 +163,13 @@
       color: #888780;
     }
 
-    /* --- APPROACH --- */
-    .approach-grid {
-      display: flex;
-      flex-direction: column;
-    }
-
+    /* APPROACH */
+    .approach-grid { display: flex; flex-direction: column; }
     .approach-item {
       padding: 1.75rem 0;
       border-bottom: 0.5px solid #D3D1C7;
     }
-
     .approach-item:first-child { border-top: 0.5px solid #D3D1C7; }
-
     .approach-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
@@ -205,9 +178,7 @@
       margin-bottom: 0.6rem;
       line-height: 1.2;
     }
-
     .approach-title em { font-style: italic; }
-
     .approach-body {
       font-size: 11px;
       line-height: 2.0;
@@ -215,14 +186,13 @@
       max-width: 580px;
     }
 
-    /* --- QUESTIONS --- */
+    /* QUESTIONS */
     .q-list {
       margin: 1.75rem 0;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-
     .q-item {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
@@ -234,7 +204,7 @@
       line-height: 1.4;
     }
 
-    /* --- ENV GRID --- */
+    /* ENV GRID */
     .env-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -242,24 +212,20 @@
       background: #D3D1C7;
       margin-bottom: 1rem;
     }
-
     .env-card {
       background: #F7F5F0;
       padding: 2.25rem 2rem;
     }
-
     .env-card-mid {
-      background: #444441;
+      background: #F1EFE8;
       padding: 2.25rem 2rem;
     }
-
     .env-n {
       font-size: 10px;
       letter-spacing: 0.16em;
       color: #888780;
       margin-bottom: 1.4rem;
     }
-
     .env-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 21px;
@@ -268,16 +234,6 @@
       line-height: 1.2;
       margin-bottom: 0.6rem;
     }
-
-    .env-title-mid {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      font-weight: 400;
-      color: #F7F5F0;
-      line-height: 1.2;
-      margin-bottom: 0.6rem;
-    }
-
     .env-who {
       font-size: 9px;
       letter-spacing: 0.14em;
@@ -287,31 +243,12 @@
       padding-bottom: 1.1rem;
       border-bottom: 0.5px solid #D3D1C7;
     }
-
-    .env-who-mid {
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #888780;
-      margin-bottom: 1.1rem;
-      padding-bottom: 1.1rem;
-      border-bottom: 0.5px solid #888780;
-    }
-
     .env-body {
       font-size: 11px;
       line-height: 1.9;
       color: #5F5E5A;
       margin-bottom: 1.4rem;
     }
-
-    .env-body-mid {
-      font-size: 11px;
-      line-height: 1.9;
-      color: #D3D1C7;
-      margin-bottom: 1.4rem;
-    }
-
     .env-tag {
       font-size: 10px;
       font-style: italic;
@@ -320,20 +257,8 @@
       border-top: 0.5px solid #D3D1C7;
     }
 
-    .env-tag-mid {
-      font-size: 10px;
-      font-style: italic;
-      color: #888780;
-      padding-top: 1.1rem;
-      border-top: 0.5px solid #888780;
-    }
-
-    /* --- SUPERPOWERS --- */
-    .sp-list {
-      display: flex;
-      flex-direction: column;
-    }
-
+    /* SUPERPOWERS */
+    .sp-list { display: flex; flex-direction: column; }
     .sp-item {
       display: flex;
       gap: 1.4rem;
@@ -343,18 +268,16 @@
       color: #5F5E5A;
       line-height: 1.7;
     }
-
     .sp-item:first-child { border-top: 0.5px solid #D3D1C7; }
     .sp-dash { color: #888780; flex-shrink: 0; }
 
-    /* --- ABOUT --- */
+    /* ABOUT */
     .about-firms {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin: 1.4rem 0 1.75rem;
     }
-
     .firm-tag {
       font-size: 9px;
       letter-spacing: 0.1em;
@@ -362,7 +285,6 @@
       padding: 5px 12px;
       color: #888780;
     }
-
     .page-label {
       font-size: 9px;
       letter-spacing: 0.22em;
@@ -374,14 +296,13 @@
       margin-top: 5.5rem;
     }
 
-    /* --- CLOSE --- */
+    /* CLOSE */
     .close {
       text-align: center;
       padding: 4.5rem 0 0;
       border-top: 0.5px solid #D3D1C7;
       margin-top: 5.5rem;
     }
-
     .close-h {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(26px, 4vw, 40px);
@@ -390,15 +311,20 @@
       color: #2C2C2A;
       margin-bottom: 0.85rem;
     }
-
     .close-sub {
       font-size: 11px;
       color: #888780;
       margin-bottom: 1.75rem;
       line-height: 1.9;
     }
+    .close-email {
+      font-size: 11px;
+      color: #5F5E5A;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.06em;
+    }
 
-    /* --- RESPONSIVE --- */
+    /* RESPONSIVE */
     @media (max-width: 640px) {
       .site { padding: 0 1.25rem 5rem; }
       .nav-links { display: none; }
@@ -415,14 +341,14 @@
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="/cdn-cgi/l/email-protection#e6878b87888287a6878b878882878d8993c885898b">Start a conversation</a>
+      <a href="mailto:amanda@amandakou.com">Start a conversation</a>
     </div>
   </nav>
 
   <section class="hero">
     <h1 class="hero-h">Clarity is the foundation<br>for <em>what comes next.</em></h1>
     <p class="hero-sub">I work with organizations, founders, and professionals at pivotal moments: building something new, navigating change, or outgrowing what once worked. At every stage, clarity is what unlocks the next move.</p>
-    <a class="cta" href="/cdn-cgi/l/email-protection#eb8a868a858f8aab8a868a858f8a80849ec5888486">Start a conversation</a>
+    <a class="cta" href="mailto:amanda@amandakou.com">Start a conversation</a>
   </section>
 
   <div class="divider"><div class="div-line"></div><div class="div-t">The problem</div><div class="div-line"></div></div>
@@ -461,7 +387,7 @@
         <div class="approach-body">Most business problems show up on the surface first: a positioning issue, a messy offer set, a growth plateau, internal misalignment, a story that no longer fits. Underneath that is usually something deeper. A tension no one has fully named. A decision no one has wanted to make. A truth the business has not yet articulated clearly enough. That is where I start.</div>
       </div>
       <div class="approach-item">
-        <div class="approach-title">Half the work is the strategy. The other half is <em>getting people there.</em></div>
+        <div class="approach-title">Part the work is the strategy. The bigger part is <em>getting people there.</em></div>
         <div class="approach-body">A strong recommendation is only half the job. The other half is getting the right people to understand it, trust it, and move behind it. Those require different skills — and treating alignment as an afterthought is one of the main reasons good strategy goes nowhere.</div>
       </div>
       <div class="approach-item">
@@ -502,10 +428,10 @@
       </div>
       <div class="env-card-mid">
         <div class="env-n">02</div>
-        <div class="env-title-mid">Founders building the next version</div>
-        <div class="env-who-mid">Independents &amp; small businesses</div>
-        <div class="env-body-mid">For founders who have outgrown their original story, evolved their offers, or reached a point where the business makes sense internally but is not yet landing clearly in the market. We get clear on what the business is, what it does best, who it is for, and how to communicate that so the right people understand quickly.</div>
-        <div class="env-tag-mid">Focused intensives. Defined outputs.</div>
+        <div class="env-title">Founders building the next version</div>
+        <div class="env-who">Independents &amp; small businesses</div>
+        <div class="env-body">For founders who have outgrown their original story, evolved their offers, or reached a point where the business makes sense internally but is not yet landing clearly in the market. We get clear on what the business is, what it does best, who it is for, and how to communicate that so the right people understand quickly.</div>
+        <div class="env-tag">Focused intensives. Defined outputs.</div>
       </div>
     </div>
   </section>
@@ -519,7 +445,7 @@
       <div class="sp-item"><span class="sp-dash">—</span><span>Turning complexity into a clear and defensible path forward</span></div>
       <div class="sp-item"><span class="sp-dash">—</span><span>Clarifying positioning, offers, and strategic direction</span></div>
       <div class="sp-item"><span class="sp-dash">—</span><span>Helping the right people align around the work</span></div>
-      <div class="sp-item"><span class="sp-dash">—</span><span>12+ years across 60+ brands — from startups to Fortune 100 companies</span></div>
+      <div class="sp-item"><span class="sp-dash">—</span><span>13+ years across 60+ brands — from startups to Fortune 100 companies</span></div>
     </div>
   </section>
 
@@ -527,7 +453,7 @@
 
   <section class="section">
     <h2 class="section-h">Amanda Kou</h2>
-    <p class="body-wide">I am a brand and business design strategist with 12+ years of experience helping organizations, founders, and independent professionals get clear on who they are, what they offer, and where to go next.</p>
+    <p class="body-wide">I am a brand and business design strategist with 13+ years of experience helping organizations, founders, and independent professionals get clear on who they are, what they offer, and where to go next.</p>
     <p class="body-wide">I have led strategy, insight, and innovation work for 60+ brands across tech, CPG, finance, health, and retail — from Series B startups to Fortune 100 companies.</p>
     <div class="about-firms">
       <span class="firm-tag">Deloitte</span>
@@ -544,5 +470,12 @@
 
   <div class="close">
     <div class="close-h">The best place to start is a conversation.</div>
-    <div class="close-sub">Tell me what is happening. I will tell you how I can help.</div>
-    <a class="cta" href="/c
+    <div class="close-sub">Tell me what is happening. I will tell you honestly how I can help.</div>
+    <div class="close-email">amanda@amandakou.com</div>
+    <a class="cta" href="mailto:amanda@amandakou.com">Get in touch</a>
+  </div>
+
+</div>
+
+</body>
+</html>
